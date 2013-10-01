@@ -1,0 +1,1525 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/27/2013 7:50:18 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="DANIELI-PC"
+  DTS:CreatorName="danieli-pc\Danieli"
+  DTS:DTSID="{523987BA-D25E-4DC8-B643-BA360B8B9913}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.3369.0"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{FE24F9A9-F8A0-4691-99BA-336FA6136564}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DANIELI-PC\]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E93949F2-1DB0-4186-905F-9A708E1A95A2}"
+      DTS:ObjectName="DANIELI-PC\">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DANIELI-PC\;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DANIELI-PC\.DwInovacao]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{265AB584-E71B-4F23-BEE2-920A8FCBAD64}"
+      DTS:ObjectName="DANIELI-PC\.DwInovacao">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DANIELI-PC\;Initial Catalog=DwInovacao;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DANIELI-PC\.DwInovacao1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{CC963C53-D519-4B3E-A388-BB8BE0CB924C}"
+      DTS:ObjectName="DANIELI-PC\.DwInovacao1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DANIELI-PC\;Initial Catalog=DwInovacao;Integrated Security=True;Application Name=SSIS-Package-{CC963C53-D519-4B3E-A388-BB8BE0CB924C}DANIELI-PC\.DwInovacao1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DANIELI-PC\.Helpnet1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{54575AF9-D3A5-48A9-86F5-BF35BD85D011}"
+      DTS:ObjectName="DANIELI-PC\.Helpnet1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DANIELI-PC\;Initial Catalog=Helpnet;Integrated Security=True;Application Name=SSIS-Package-{54575AF9-D3A5-48A9-86F5-BF35BD85D011}DANIELI-PC\.Helpnet1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DANIELI-PC\1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{D7313447-96F8-4D40-9CBA-2942D61FE116}"
+      DTS:ObjectName="DANIELI-PC\1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=DANIELI-PC\;Integrated Security=True;Application Name=SSIS-Package-{D7313447-96F8-4D40-9CBA-2942D61FE116}DANIELI-PC\1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Atualizar tabela de histórico"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FDD7B532-D177-4A8F-96E1-D05FD2F1335F}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Atualizar tabela de histórico"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E93949F2-1DB0-4186-905F-9A708E1A95A2}"
+          SQLTask:SqlStatementSource="update [DwInovacao].[dbo].[HistoricoAtualizacoesTabelas0800] set [UltimoIdProduto] = (select max(proid) from [helpnet].[dbo].[produto])&#xA;go&#xA;update [DwInovacao].[dbo].[HistoricoAtualizacoesTabelas0800] set [ultimoidtarefa] = (select max(tarid) from [helpnet].[dbo].[tarefa])&#xA;go&#xA;update [DwInovacao].[dbo].[HistoricoAtualizacoesTabelas0800] set [ultimoidversao] = (select max(verid) from [helpnet].[dbo].[tipoversao])&#x9;   &#xA;go&#x9;&#x9;   &#xA;    " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Extração e carga de produtos"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{72EB4A16-1457-4A66-8F9B-2B90A85088A5}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extração e carga de produtos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extração e carga de produtos\Destino OLE DB"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="Destino OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dbo].[Produtos]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extração e carga de produtos\Destino OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DANIELI-PC\.DwInovacao]"
+                  connectionManagerRefId="Package.ConnectionManagers[DANIELI-PC\.DwInovacao]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extração e carga de produtos\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extração e carga de produtos\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[ProID]"
+                      cachedDataType="i4"
+                      cachedName="ProID"
+                      externalMetadataColumnId="Package\Extração e carga de produtos\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[SequenciaProduto]"
+                      lineageId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ProID]" />
+                    <inputColumn
+                      refId="Package\Extração e carga de produtos\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[ProNome]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="ProNome"
+                      externalMetadataColumnId="Package\Extração e carga de produtos\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[NomeProduto]"
+                      lineageId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ProNome]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de produtos\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[SequenciaProduto]"
+                      dataType="i4"
+                      name="SequenciaProduto" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de produtos\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[NomeProduto]"
+                      dataType="nText"
+                      name="NomeProduto" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extração e carga de produtos\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\Extração e carga de produtos\Destino OLE DB.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extração e carga de produtos\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de produtos\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extração e carga de produtos\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de produtos\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extração e carga de produtos\Origem OLE DB"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="Origem OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;7"
+              description="Origem OLE DB"
+              name="Origem OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT ProID, ProNome FROM [Helpnet].[dbo].[Produto] where proid &gt; ( select max(ultimoidproduto) from [DwInovacao].[dbo].[HistoricoAtualizacoesTabelas0800])</property>
+                <property
+                  dataType="System.String"
+                  description="A variável que contém o comando SQL a ser executado."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Os mapeamentos entre os parâmetros no comando SQL e as variáveis."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extração e carga de produtos\Origem OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DANIELI-PC\]"
+                  connectionManagerRefId="Package.ConnectionManagers[DANIELI-PC\]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Origem OLE DB]"
+                  name="Saída de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ProID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[ProID]"
+                      lineageId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ProID]"
+                      name="ProID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ProNome]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[ProNome]"
+                      length="60"
+                      lineageId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ProNome]"
+                      name="ProNome"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[ProID]"
+                      dataType="i4"
+                      name="ProID" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[ProNome]"
+                      dataType="wstr"
+                      length="60"
+                      name="ProNome" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ProID]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ProID]"
+                      name="ProID" />
+                    <outputColumn
+                      refId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ProNome]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ProNome]"
+                      name="ProNome" />
+                    <outputColumn
+                      refId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extração e carga de produtos.Paths[Saída de Origem OLE DB]"
+              endId="Package\Extração e carga de produtos\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+              name="Saída de Origem OLE DB"
+              startId="Package\Extração e carga de produtos\Origem OLE DB.Outputs[Saída de Origem OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Extração e carga de tarefas"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{1E7B5CDE-AAC2-4DF1-9052-F2206626AAD2}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extração e carga de tarefas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extração e carga de tarefas\Criação de tarefas DW"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="Criação de tarefas DW"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"dbo"."Tarefa"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DANIELI-PC\.DwInovacao1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DANIELI-PC\.DwInovacao1]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].Columns[Natureza]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="Natureza"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Natureza]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[Natureza]" />
+                    <inputColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].Columns[Projeto]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="Projeto"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Projeto]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[Projeto]" />
+                    <inputColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].Columns[TarID]"
+                      cachedDataType="i4"
+                      cachedName="TarID"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[NumeroTarefa]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarID]" />
+                    <inputColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].Columns[TarData]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="TarData"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[DataCriacao]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarData]" />
+                    <inputColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].Columns[TarStatus]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="TarStatus"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarStatus]" />
+                    <inputColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].Columns[TarTitulo]"
+                      cachedDataType="wstr"
+                      cachedLength="400"
+                      cachedName="TarTitulo"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Titulo]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarTitulo]" />
+                    <inputColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].Columns[NomeCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="NomeCliente"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Cliente]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[NomeCliente]" />
+                    <inputColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].Columns[TarPrioridade]"
+                      cachedDataType="i2"
+                      cachedName="TarPrioridade"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Prioridade]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarPrioridade]" />
+                    <inputColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].Columns[VersaoO]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="VersaoO"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[VersaoOrigem]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[VersaoO]" />
+                    <inputColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].Columns[Proid]"
+                      cachedDataType="i4"
+                      cachedName="Proid"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Produto]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[Proid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[NumeroTarefa]"
+                      dataType="i4"
+                      name="NumeroTarefa" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Produto]"
+                      dataType="i4"
+                      name="Produto" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Natureza]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="Natureza" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Projeto]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="Projeto" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[DataCriacao]"
+                      dataType="dbTimeStamp"
+                      name="DataCriacao" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Status]"
+                      dataType="wstr"
+                      length="1"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Titulo]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="Titulo" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Cliente]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[Prioridade]"
+                      dataType="i2"
+                      name="Prioridade" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input].ExternalColumns[VersaoOrigem]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="VersaoOrigem" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de tarefas\Criação de tarefas DW.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Criação de tarefas DW.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de tarefas\Criação de tarefas DW.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extração e carga de tarefas\Extrair tarefas 0800"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Extrair tarefas 0800"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        TarID, Proid, Natureza, Projeto, TarData, TarStatus, TarTitulo, NomeCliente, TarPrioridade, VersaoO
+FROM           [Helpnet].[dbo]. [Tarefa]
+WHERE        tarid &gt; (select max(ultimoidtarefa) from [DwInovacao].[dbo].[HistoricoAtualizacoesTabelas0800]) and Proid is not null</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DANIELI-PC\1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DANIELI-PC\1]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[TarID]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarID]"
+                      name="TarID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[Proid]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[Proid]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[Proid]"
+                      name="Proid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[Natureza]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[Natureza]"
+                      length="30"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[Natureza]"
+                      name="Natureza"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[Projeto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[Projeto]"
+                      length="80"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[Projeto]"
+                      name="Projeto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarData]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[TarData]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarData]"
+                      name="TarData"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[TarStatus]"
+                      length="1"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarStatus]"
+                      name="TarStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarTitulo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[TarTitulo]"
+                      length="400"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarTitulo]"
+                      name="TarTitulo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[NomeCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[NomeCliente]"
+                      length="300"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[NomeCliente]"
+                      name="NomeCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarPrioridade]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[TarPrioridade]"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[TarPrioridade]"
+                      name="TarPrioridade"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[VersaoO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[VersaoO]"
+                      length="60"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].Columns[VersaoO]"
+                      name="VersaoO"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[TarID]"
+                      dataType="i4"
+                      name="TarID" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[Proid]"
+                      dataType="i4"
+                      name="Proid" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[Natureza]"
+                      dataType="wstr"
+                      length="30"
+                      name="Natureza" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[Projeto]"
+                      dataType="wstr"
+                      length="80"
+                      name="Projeto" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[TarData]"
+                      dataType="dbTimeStamp"
+                      name="TarData" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[TarStatus]"
+                      dataType="wstr"
+                      length="1"
+                      name="TarStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[TarTitulo]"
+                      dataType="wstr"
+                      length="400"
+                      name="TarTitulo" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[NomeCliente]"
+                      dataType="wstr"
+                      length="300"
+                      name="NomeCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[TarPrioridade]"
+                      dataType="i2"
+                      name="TarPrioridade" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output].ExternalColumns[VersaoO]"
+                      dataType="wstr"
+                      length="60"
+                      name="VersaoO" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[TarID]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[TarID]"
+                      name="TarID" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[Proid]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[Proid]"
+                      name="Proid" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[Natureza]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[Natureza]"
+                      name="Natureza" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[Projeto]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[Projeto]"
+                      name="Projeto" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[TarData]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[TarData]"
+                      name="TarData" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[TarStatus]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[TarStatus]"
+                      name="TarStatus" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[TarTitulo]"
+                      dataType="wstr"
+                      length="400"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[TarTitulo]"
+                      name="TarTitulo" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[NomeCliente]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[NomeCliente]"
+                      name="NomeCliente" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[TarPrioridade]"
+                      dataType="i2"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[TarPrioridade]"
+                      name="TarPrioridade" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[VersaoO]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[VersaoO]"
+                      name="VersaoO" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extração e carga de tarefas.Paths[ADO NET Source Output]"
+              endId="Package\Extração e carga de tarefas\Criação de tarefas DW.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\Extração e carga de tarefas\Extrair tarefas 0800.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Extração e carga de versão"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{C24062DF-AEE9-4309-963F-F8880AFFA5F9}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extração e carga de versão"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extração e carga de versão\ADO NET Destination"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"dbo"."VersaoLiberacao"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extração e carga de versão\ADO NET Destination.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DANIELI-PC\.DwInovacao1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DANIELI-PC\.DwInovacao1]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[verid]"
+                      cachedDataType="i4"
+                      cachedName="verid"
+                      externalMetadataColumnId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SequenciaVersao]"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].Columns[verid]" />
+                    <inputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[versao]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="versao"
+                      externalMetadataColumnId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DescricaoVersao]"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].Columns[versao]" />
+                    <inputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[verdatareallib]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="verdatareallib"
+                      externalMetadataColumnId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DataLiberacao]"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].Columns[verdatareallib]" />
+                    <inputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[proid]"
+                      cachedDataType="i4"
+                      cachedName="proid"
+                      externalMetadataColumnId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Produto]"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].Columns[proid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SequenciaVersao]"
+                      dataType="i4"
+                      name="SequenciaVersao" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DescricaoVersao]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="DescricaoVersao" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DataLiberacao]"
+                      dataType="dbTimeStamp"
+                      name="DataLiberacao" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Produto]"
+                      dataType="i4"
+                      name="Produto" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extração e carga de versão\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de versão\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de versão\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extração e carga de versão\ADO NET Source"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Source"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select verid, proid, versao, verdatareallib from [Helpnet].[dbo].[TipoVersao]
+WHERE     verid &gt; (select max(ultimoidversao) from [DwInovacao].[dbo].[HistoricoAtualizacoesTabelas0800])</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extração e carga de versão\ADO NET Source.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DANIELI-PC\1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DANIELI-PC\1]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].Columns[verid]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[verid]"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].Columns[verid]"
+                      name="verid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].Columns[proid]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[proid]"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].Columns[proid]"
+                      name="proid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].Columns[versao]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[versao]"
+                      length="15"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].Columns[versao]"
+                      name="versao"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].Columns[verdatareallib]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[verdatareallib]"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].Columns[verdatareallib]"
+                      name="verdatareallib"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[verid]"
+                      dataType="i4"
+                      name="verid" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[proid]"
+                      dataType="i4"
+                      name="proid" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[versao]"
+                      dataType="wstr"
+                      length="15"
+                      name="versao" />
+                    <externalMetadataColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[verdatareallib]"
+                      dataType="dbTimeStamp"
+                      name="verdatareallib" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[verid]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[verid]"
+                      name="verid" />
+                    <outputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[proid]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[proid]"
+                      name="proid" />
+                    <outputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[versao]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[versao]"
+                      name="versao" />
+                    <outputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[verdatareallib]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[verdatareallib]"
+                      name="verdatareallib" />
+                    <outputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extração e carga de versão.Paths[ADO NET Source Output]"
+              endId="Package\Extração e carga de versão\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\Extração e carga de versão\ADO NET Source.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{370AACE9-20E2-44E1-8936-803079B96C44}"
+      DTS:From="Package\Extração e carga de produtos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Extração e carga de versão" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{FBED78BC-5A68-4CB7-B800-B9D6F0B7A7FD}"
+      DTS:From="Package\Extração e carga de versão"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Extração e carga de tarefas" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{9F743F08-FA9C-47C9-9C49-38574DFB82F4}"
+      DTS:From="Package\Extração e carga de tarefas"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Atualizar tabela de histórico" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Extração e carga de tarefas"
+          TopLeft="422.252921076497,217.965727946887" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\Extração e carga de produtos"
+          TopLeft="384.132611543831,59.2668239612408" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Extração e carga de versão"
+          TopLeft="432,129.872058274844" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="493.632611543831,101.266823961241">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.8673884561688,28.6052343136033"
+              Start="0,0"
+              End="42.8673884561688,21.1052343136033">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.3026171568016" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.3026171568016"
+                    Point2="0,14.3026171568016"
+                    Point3="4,14.3026171568016" />
+                  <mssgle:LineSegment
+                    End="38.8673884561688,14.3026171568016" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.8673884561688,14.3026171568016"
+                    Point2="42.8673884561688,14.3026171568016"
+                    Point3="42.8673884561688,18.3026171568016" />
+                  <mssgle:LineSegment
+                    End="42.8673884561688,21.1052343136033" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="536.5,171.872058274844">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.24707892350307,46.0936696720433"
+              Start="0,0"
+              End="-9.24707892350307,38.5936696720433">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.0468348360217" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.0468348360217"
+                    Point2="0,23.0468348360217"
+                    Point3="-4,23.0468348360217" />
+                  <mssgle:LineSegment
+                    End="-5.24707892350307,23.0468348360217" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.24707892350307,23.0468348360217"
+                    Point2="-9.24707892350307,23.0468348360217"
+                    Point3="-9.24707892350307,27.0468348360217" />
+                  <mssgle:LineSegment
+                    End="-9.24707892350307,38.5936696720433" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="211,42"
+          Id="Package\Atualizar tabela de histórico"
+          TopLeft="466,306" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="527.252921076497,259.965727946887">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.2470789235031,46.0342720531125"
+              Start="0,0"
+              End="21.2470789235031,38.5342720531125">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.0171360265563" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.0171360265563"
+                    Point2="0,23.0171360265563"
+                    Point3="4,23.0171360265563" />
+                  <mssgle:LineSegment
+                    End="17.2470789235031,23.0171360265563" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.2470789235031,23.0171360265563"
+                    Point2="21.2470789235031,23.0171360265563"
+                    Point3="21.2470789235031,27.0171360265563" />
+                  <mssgle:LineSegment
+                    End="21.2470789235031,38.5342720531125" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Extração e carga de tarefas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Extração e carga de tarefas\Extrair tarefas 0800"
+          TopLeft="369,95" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Extração e carga de tarefas\Criação de tarefas DW"
+          TopLeft="422,195" />
+        <EdgeLayout
+          Id="Package\Extração e carga de tarefas.Paths[ADO NET Source Output]"
+          TopLeft="456,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59,58"
+              Start="0,0"
+              End="59,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="4,29" />
+                  <mssgle:LineSegment
+                    End="55,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55,29"
+                    Point2="59,29"
+                    Point3="59,33" />
+                  <mssgle:LineSegment
+                    End="59,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extração e carga de tarefas\Criação de tarefas DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extração e carga de tarefas\Extrair tarefas 0800">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Extração e carga de produtos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Extração e carga de produtos\Origem OLE DB"
+          TopLeft="394,173" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Extração e carga de produtos\Destino OLE DB"
+          TopLeft="437,268" />
+        <EdgeLayout
+          Id="Package\Extração e carga de produtos.Paths[Saída de Origem OLE DB]"
+          TopLeft="471,215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43.5,53"
+              Start="0,0"
+              End="43.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
+                  <mssgle:LineSegment
+                    End="39.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.5,26.5"
+                    Point2="43.5,26.5"
+                    Point3="43.5,30.5" />
+                  <mssgle:LineSegment
+                    End="43.5,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extração e carga de produtos\Origem OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extração e carga de produtos\Destino OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Extração e carga de versão">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Extração e carga de versão\ADO NET Source"
+          TopLeft="458,178" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Extração e carga de versão\ADO NET Destination"
+          TopLeft="511,281" />
+        <EdgeLayout
+          Id="Package\Extração e carga de versão.Paths[ADO NET Source Output]"
+          TopLeft="538,220">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.5,61"
+              Start="0,0"
+              End="63.5,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="4,30.5" />
+                  <mssgle:LineSegment
+                    End="59.5,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.5,30.5"
+                    Point2="63.5,30.5"
+                    Point3="63.5,34.5" />
+                  <mssgle:LineSegment
+                    End="63.5,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extração e carga de versão\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extração e carga de versão\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
