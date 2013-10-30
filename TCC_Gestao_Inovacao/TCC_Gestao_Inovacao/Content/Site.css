@@ -11,7 +11,7 @@ body {
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
-    padding: 0;
+    padding: 5px;
 }
 
 a {
@@ -114,14 +114,15 @@ h5, h6 {
     }
 
 header .content-wrapper {
-    padding-top: 20px; 
+    padding-top: 20px;
+    height: 1px;
 }
     
 footer {
     clear: both;
     background-color: #e2e2e2;
     font-size: .8em;
-    height: 100px;
+    height: 14px;
 }
 
 
@@ -149,6 +150,7 @@ footer {
     font-size: .85em;
     margin: 0 0 10px;
     text-align: right;
+    height: 18px;
 }
 
     #login a {
@@ -407,13 +409,11 @@ fieldset {
         font-size: 1.2em;
         margin: 5px 0 6px 0;
         padding: 5px;
-        width: 300px;
-    }
+        }
 
     textarea {
         font-family: inherit;
-        width: 500px;
-    }
+        }
     
         input:focus, textarea:focus {
             border: 1px solid #7ac0da;

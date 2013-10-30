@@ -200,6 +200,7 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="Scripts\FuncoesUteis.js" />
     <Content Include="packages.config" />
     <Content Include="DataSetDwInovacao.xsc">
       <DependentUpon>DataSetDwInovacao.xsd</DependentUpon>
@@ -243,7 +244,9 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Telas\CadastroAssuntos.aspx" />
+    <Content Include="Telas\AssuntoInovacao.aspx" />
+    <Content Include="Telas\CadastrarAlertas.aspx" />
+    <Content Include="Telas\VisualizarAssuntos.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -302,6 +305,10 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DataSetDwInovacao.cs">
+      <DependentUpon>DataSetDwInovacao.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataSetDwInovacao.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -332,12 +339,26 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="Telas\CadastroAssuntos.aspx.cs">
-      <DependentUpon>CadastroAssuntos.aspx</DependentUpon>
+    <Compile Include="Telas\AssuntoInovacao.aspx.cs">
+      <DependentUpon>AssuntoInovacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Telas\CadastroAssuntos.aspx.designer.cs">
-      <DependentUpon>CadastroAssuntos.aspx</DependentUpon>
+    <Compile Include="Telas\AssuntoInovacao.aspx.designer.cs">
+      <DependentUpon>AssuntoInovacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\CadastrarAlertas.aspx.cs">
+      <DependentUpon>CadastrarAlertas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Telas\CadastrarAlertas.aspx.designer.cs">
+      <DependentUpon>CadastrarAlertas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\VisualizarAssuntos.aspx.cs">
+      <DependentUpon>VisualizarAssuntos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Telas\VisualizarAssuntos.aspx.designer.cs">
+      <DependentUpon>VisualizarAssuntos.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
